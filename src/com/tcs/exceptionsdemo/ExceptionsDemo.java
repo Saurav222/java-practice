@@ -1,26 +1,30 @@
 package com.tcs.exceptionsdemo;
 
 public class ExceptionsDemo {
-	public static void main(String[] args) throws MyCheckedException {
+	public static void main(String[] args) {
 		try {
 			demo2();
+		} catch (InvalidInputException e) {
+			// TODO: handle exception
 		} catch (MyCheckedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			System.out.println("always called");
 		}
-		//demo1();
+
+		// demo1();
 	}
-	
-	public static void demo2() throws MyCheckedException{
+
+	private static void demo2() throws MyCheckedException, InvalidInputException {
 		throw new MyCheckedException();
 	}
-		
-	public static void demo1() {	
+
+	private static void demo1() {
 		try {
-			System.out.println(1/0);
+			System.out.println(1 / 0);
 		} catch (ArithmeticException ex) {
 			ex.printStackTrace();
-			System.out.println("division by zero is not allowed");
+			System.out.println("division by zero is not allowed.");
 		}
 	}
 }
