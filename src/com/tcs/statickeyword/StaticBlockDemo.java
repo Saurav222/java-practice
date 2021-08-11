@@ -7,6 +7,7 @@ public class StaticBlockDemo {
 		System.out.println("in constructor");
 	}
 	static {//called first, loaded during setup
+		final int localVariable = 40;
 		System.out.println("this is static block "+ age);
 	}
 	public static void main(String[] args) {
